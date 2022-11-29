@@ -40,8 +40,8 @@ include("../hf/head.php");
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <img src="/Tienda/img_productos/<?php echo $fila[5] ?>" alt="<?php echo $fila[1] ?>" class="img-fluid"
-              width="370px">
+            <img src="/Tienda/archivos/img_productos/<?php echo $fila[5] ?>" alt="<?php echo $fila[1] ?>"
+              class="img-fluid" width="370px">
           </div>
           <div class="col-md-6">
             <h2 class="text-black">

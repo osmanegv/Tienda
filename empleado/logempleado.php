@@ -1,25 +1,27 @@
-
 <?php
-    $id=null;
-    $contador=0;
-    include("conexione.php");
-    $resultado=$conex -> query("select * from empleados WHERE email_empleado='".$_POST['email']."' 
-    AND pass_empleado = '".$_POST['password']."'" ) or die($conex ->error);
-    while($fila = mysqli_fetch_array($resultado)){
-        $id=$fila['id_empleado'];
-        $contador++;}
+$id = null;
+$contador = 0;
+include("../sesion/conexion.php");
+$resultado = $conex->query("select * from clientes WHERE email_cliente='" . $_POST['email'] . "' 
+    AND pass_cliente = '" . $_POST['password'] . "' AND tipo_usuario=1") or die($conex->error);
+while ($fila = mysqli_fetch_array($resultado)) {
+    $id = $fila['id_cliente'];
+    $tp = $fila['tipo_usuario'];
+    $contador++;
+}
 
-    if($contador>0){
-        echo "<script> 
+if ($contador > 0) {
+    echo "<script> 
         alert ('Successfully login');
-        window.location = '../empleado.php';
+        window.location = 'empleado.php';
         </script>";
-        session_start();
-        $_SESSION['loge']=$id;
-    }else{
-        echo "<script> 
+    session_start();
+    $_SESSION['log'] = $id;
+    $_SESSION['tp'] = $tp;
+} else {
+    echo "<script> 
         alert ('Not login');
         window.location = 'logine.php';
         </script>";
-    }
-    ?>
+}
+?>

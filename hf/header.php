@@ -60,9 +60,16 @@
 
         </form>
         <?php
+        $tp = null;
         if (isset($_SESSION['log'])) {
+          if ($_SESSION['tp'] == 2) {
+            $tp = '/Tienda/sesion/cliente.php';
+          } else {
+            $tp = '/Tienda/empleado/empleado.php';
+          }
         ?>
-        <button type="text" class="btn btn-dark" onclick="window.location = '/Tienda/sesion/cliente.php'">
+        <button type="text" class="btn btn-dark" onclick="window.location='<?php echo
+            $tp ?>'">
           <i class="fas fa-user"></i>&nbsp Pefil
         </button>
         <form action="/Tienda/registro/sesionOut.php" method="POST">
@@ -85,5 +92,6 @@
           </button>
         </div>
         <?php } ?>
+
       </div>
     </nav>
