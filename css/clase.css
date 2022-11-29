@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@1,300&display=swap');
+*{
+padding: 0px;
+font-family:  'Play', sans-serif;
+list-style: none;
+text-decoration: none;
+}
+.Bienvenidos{
+    background: url("../complemento/images/verd.jpg");
+    height: 100vh;
+    background-size: cover;
+    overflow: hedden;
+}
+header{
+    width: 100vw;
+    background-color: white;
+    height: 130px;
+}
+.Container_xl{
+    width: 100vw;
+    height: 100vw;
+}
+i{
+margin: auto;
+color: #71c511;   
+}
+.titulo{
+    background-color: #222324;
+    display: -webkit-flex;
+}
+.titulo_p{
+margin: auto;
+color: #a19c9c;
+text-align: center;
+padding: 0px;
+}
+.titulo_P{
+    text-align: left;
+    margin:0px 5px ;
+    font-size: 13px;
+}
+.texto-bienvenido{
+    color: #fff;
+    margin-top: 2rem;
+}
+.Mision .fa{
+    color: black;
+    font-size: 4rem;
+}
+
+footer{
+    background-color: #4d5053 /*#3E38F2*/;
+    width: 100vw;
+    text-align: left;
+    color:white;
+    
+    }
+.pie_pagina{
+    margin: auto;
+    width: 100vw;
+    padding:15px;
+    
+}
+.container_cuerpo{
+    display: flex;
+    justify-content: space-between;
+}
+.columna1{
+    margin-top: 40px;
+    max-width: 250px;
+    padding: 8px;
+   
+}
+.columna1 h3{
+    font-size: 18px;
+}
+.columna1 p{
+    font-size: 15px;
+    margin-top: 15px;
+    color:#ffffff ;
+}
+.columna2{
+    max-width: 250px;
+    margin-top: 5px;
+    padding: 8px;
+
+}
+.columna2 h3{
+    font-size: 18px;
+}
+.columna2 label{
+    font-size: 15px;
+    color:#ffffff;
+}
+.columna2 .filas{
+    margin-top: 17px;
+    display: flex;
+    
+}
+.icon_pie{
+    display: flex;
+    margin: 5px 5px;
+    color:#37b5d4;
+    float: left;
+}
+
+.columna3{
+    max-width: 650px;
+    margin-top: 10px;
+    display: block;
+    padding: 5px;
+    
+
+}
+.columna3 h3{
+    font-size: 18px;
+}
+.columna3 label{
+    font-size: 15px;
+    color:#ffffff;
+}
+.columna3 .filas{
+    margin-top: 13px;
+
+}
+
+.container_pie{
+  background-color:#222324 ;
+   width: 100vw;
+   padding: 8px;
+  
+}
+.copyright{
+    font-size: 15px;
+    color:#ffffff
+}
+
+@media (min-width: 768px){
+    html{
+        font-size: 18px;
+    }
+    #menuprincipal{
+        clear: inherit;
+    }
+    .Bienvenidos{
+        background: url("../complemento/images/verde.jpg");
+        background-size: cover;
+    }
+}
