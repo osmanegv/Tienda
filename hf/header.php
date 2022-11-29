@@ -2,7 +2,8 @@
   <section class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
       <div class="logo">
-        <a href="/Tienda/index.php"><img src="/Tienda/images/LOGOM2.png" class="img-fluid" alt="Responsive image" /></a>
+        <a href="/Tienda/index.php"><img src="/Tienda/archivos/images/LOGOM2.png" class="img-fluid"
+            alt="Responsive image" /></a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +15,10 @@
             <div class="icono"><i class="fas fa-shopping-cart"></i>
               <span class="site-cart count">
                 <?php
-                session_start();
+
+                if (session_status() !== 2) {
+                  session_start();
+                }
                 if (isset($_SESSION['carrito'])) {
                   echo count($_SESSION['carrito']);
                 } else {
@@ -83,6 +87,3 @@
         <?php } ?>
       </div>
     </nav>
-    <div class="titulo justify-content-between">
-
-      <div class="titulo_p">

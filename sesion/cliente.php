@@ -11,8 +11,10 @@ include("../hf/head.php");
   <?php
   include("../hf/header.php");
   ?>
-  <h4>Perfil</h4>
-  </div>
+  <div class="titulo justify-content-between">
+    <div class="titulo_p">
+      <h4>Perfil</h4>
+    </div>
   </div>
   </section>
   </header><br><br><br>

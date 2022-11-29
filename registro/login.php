@@ -23,35 +23,37 @@ include("../hf/head.php");
     <?php
     include("../hf/header.php");
     ?>
-    <h4>Login</h4>
-  </div>
-  </div>
-  </section>
-  </header><br><br>
-
-
-  <main class="cuepo_pagina position-relative">
-    <div class="row justify-content-center">
-      <div class="col-xs-4 col-md-6 col-lg-6 mx-3 mt-5">
-        <div class="cuerpo_contenido">
-          <form class="form-signin" action="logcliente.php" method="POST">
-
-            <label for="inputEmail" class="sr-only">Email</label><br>
-            <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required
-              autofocus>
-            <label for="inputPassword" class="sr-only">Contraseña</label><br>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña"
-              required>
-            <br><button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
-            <br>
-            <a href="../empleado/logine.php">¿Eres un empleado?</a>
-
-
-          </form>
-        </div>
+    <div class="titulo justify-content-between">
+      <div class="titulo_p">
+        <h4>Login</h4>
       </div>
     </div>
-  </main>
+    </section>
+    </header><br><br>
+
+
+    <main class="cuepo_pagina position-relative">
+      <div class="row justify-content-center">
+        <div class="col-xs-4 col-md-6 col-lg-6 mx-3 mt-5">
+          <div class="cuerpo_contenido">
+            <form class="form-signin" action="logcliente.php" method="POST">
+
+              <label for="inputEmail" class="sr-only">Email</label><br>
+              <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required
+                autofocus>
+              <label for="inputPassword" class="sr-only">Contraseña</label><br>
+              <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña"
+                required>
+              <br><button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+              <br>
+              <a href="../empleado/logine.php">¿Eres un empleado?</a>
+
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 
 
