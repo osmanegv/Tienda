@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include("../sesion/conexion.php");
 if (isset($_SESSION['carrito'])) {
   // si ya existen productos en el carrito 
@@ -58,17 +58,100 @@ include("../hf/head.php");
 
 <body>
 
-  <?php
+  <header>
+    <section class="fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <div class="logo">
+          <a href="/Teinda/index.php"><img src="/Tienda/images/LogoM2.png" class="img-fluid"
+              alt="Responsive image" /></a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <div class="icono"><i class="fas fa-shopping-cart"></i> <span class="site-cart count">
+                  <?php
+                  if (isset($_SESSION['carrito'])) {
+                    echo count($_SESSION['carrito']);
+                  } else {
+                    echo 0;
+                  }
+                  ?>
+                </span></div>
+              <a class="nav-link active" href="carrito.php">Productos</a>
 
-  include("../hf/header.php");
-  ?>
-  <h4>Productos añadidoss</h4>
-  </div>
-  </div>
-  </section>
+            </li>
+            <li class="nav-item">
+              <div class="icono">
+                <i class="fas fa-question-circle"></i>
+              </div>
+              <a class="nav-link" href="ayuda.php"> Ayuda</a>
+            </li>
+            <li class="nav-item dropdown">
+
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bars"></i> Menú
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item " href="/Tienda/index.php">
+                  <h5>Inicio</h5>
+                </a>
+                <a class="dropdown-item" href="computo.php"> Computo </a>
+                <a class="dropdown-item" href="Impresoras.php">Impresoras </a>
+                <a class="dropdown-item" href="Accesorios.php">Accesorios </a>
+                <a class="dropdown-item" href="Oficina.php">Oficina </a>
+
+
+              </div>
+          </ul>
+          <form action="busqueda.php" class="form-inline my-2 my-lg-0" method="GET">
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar" aria-label="Search" name="texto" />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Buscar
+            </button>&nbsp &nbsp
+          </form>
+          <?php
+          if (isset($_SESSION['log'])) {
+          ?>
+
+          <button type="text" class="btn btn-dark" onclick="window.location = 'cliente.php'">
+            <i class="fas fa-user"></i>&nbsp Pefil
+          </button>
+          <form action="registro/sesionOut.php" method="POST">
+            <button type="submit" class="btn btn-dark">
+              <i class="fas fa-user"></i>&nbsp Cerrar Sesion
+            </button>
+          </form>
+
+          <?php
+
+          } else {
+
+          ?>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-dark" onclick="window.location.href='registro/login.php'">
+              <i class="fas fa-user"></i>&nbsp Ingresar
+            </button>
+            <button type="button" class="btn btn-dark" onclick="window.location.href='registro/registro.php'">
+              <i class="fas fa-edit"></i>&nbspRegistrarse
+            </button>
+          </div>
+          <?php } ?>
+        </div>
+      </nav>
+      <div class="titulo justify-content-between">
+
+        <div class="titulo_p">
+          <h4>Productos Añadidos</h4>
+        </div>
+      </div>
+    </section>
   </header>
-
-  <br><br>
+  </div><br><br>
   <div class="container-fluid">
 
     <div class="site-wrap mt-5 mb-5">
@@ -103,7 +186,7 @@ include("../hf/head.php");
 
                     <tr>
                       <td class="product-thumbnail">
-                        <img src="img_productos/<?php echo $argcar[$j]['IMG'] ?>" alt="Image"
+                        <img src="/Tienda/img_productos/<?php echo $argcar[$j]['IMG'] ?>" alt="Image"
                           class="img-fluid text-center" width="100px">
                       </td>
                       <td class="product-name">
@@ -216,19 +299,17 @@ include("../hf/head.php");
     </div>
 
 
-    <?php
-    include("../hf/footer.php");
-    ?>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/main.js"></script>
-    <script src="carrito.js"> </script>
+
+    <script src="/Tienda/js/jquery-3.3.1.min.js"></script>
+    <script src="/Tienda/js/jquery-ui.js"></script>
+    <script src="/Tienda/js/popper.min.js"></script>
+    <script src="/Tienda/js/bootstrap.min.js"></script>
+    <script src="/Tienda/js/owl.carousel.min.js"></script>
+    <script src="/Tienda/js/jquery.magnific-popup.min.js"></script>
+    <script src="/Tienda/js/aos.js"></script>
+    <script src="/Tienda/js/main.js"></script>
+    <script src="/Tienda/carrito.js"> </script>
 
 </body>
 
