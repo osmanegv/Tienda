@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost:3307
--- Tiempo de generación: 07-11-2020 a las 23:33:14
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-11-2022 a las 00:06:41
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,6 +42,7 @@ CREATE TABLE `carrito` (
 
 CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
+  `tipo_usuario` int(11) NOT NULL,
   `nombre_cliente` varchar(30) NOT NULL,
   `email_cliente` varchar(30) NOT NULL,
   `pass_cliente` varchar(30) NOT NULL
@@ -51,11 +52,12 @@ CREATE TABLE `clientes` (
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `email_cliente`, `pass_cliente`) VALUES
-(7, 'Juan', 'juan@gmail.com', '12345'),
-(8, 'Pedro Ramirez', 'pedro@gmail.com', '12345'),
-(9, 'Mario Juan', 'mario@gmail.com', '12345'),
-(11, 'Maria de la Cruz', 'maria@gmail.com', '12345');
+INSERT INTO `clientes` (`id_cliente`, `tipo_usuario`, `nombre_cliente`, `email_cliente`, `pass_cliente`) VALUES
+(7, 1, 'Juan', 'juan@gmail.com', '12345'),
+(8, 2, 'Pedro Ramirez', 'pedro@gmail.com', '12345'),
+(9, 2, 'Mario Juan', 'mario@gmail.com', '12345'),
+(11, 2, 'Maria de la Cruz', 'maria@gmail.com', '12345'),
+(12, 2, 'Hugo', 'hugo@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -77,7 +79,11 @@ CREATE TABLE `detalle_orden` (
 
 INSERT INTO `detalle_orden` (`id_detalle`, `id_orden`, `id_producto`, `cantidad_producto`, `precio_producto`) VALUES
 (1, 6, 1, 1, '13400.00'),
-(5, 9, 5, 2, '667.00');
+(5, 9, 5, 2, '667.00'),
+(8, 10, 2, 1, '500.00'),
+(9, 11, 1, 1, '13400.00'),
+(10, 12, 1, 1, '13400.00'),
+(11, 13, 1, 1, '13400.00');
 
 -- --------------------------------------------------------
 
@@ -104,26 +110,6 @@ INSERT INTO `direccion` (`id_direccion`, `id_cliente`, `direccion`, `municipio`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empleados`
---
-
-CREATE TABLE `empleados` (
-  `id_empleado` int(11) NOT NULL,
-  `nombre_empleado` varchar(30) NOT NULL,
-  `email_empleado` varchar(30) NOT NULL,
-  `pass_empleado` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `empleados`
---
-
-INSERT INTO `empleados` (`id_empleado`, `nombre_empleado`, `email_empleado`, `pass_empleado`) VALUES
-(12, 'Juan Pedro', 'jp@empresa.com', '12345');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `metodo_pago`
 --
 
@@ -141,7 +127,8 @@ CREATE TABLE `metodo_pago` (
 
 INSERT INTO `metodo_pago` (`id_mtdpago`, `id_cliente`, `nom_tarjeta`, `num_tarjeta`, `cvv_tarjeta`) VALUES
 (1, 11, 'Maria', '1234567890', '123'),
-(3, 6, 'bam', '456546541', '555');
+(3, 6, 'bam', '456546541', '555'),
+(4, 9, 'Mario', '34567890987654', '123');
 
 -- --------------------------------------------------------
 
@@ -162,7 +149,11 @@ CREATE TABLE `orden` (
 
 INSERT INTO `orden` (`id_orden`, `id_cliente`, `id_mtdpago`, `total_orden`) VALUES
 (2, 11, 1, '500.00'),
-(3, 11, 1, '1200.00');
+(3, 11, 1, '1200.00'),
+(10, 9, 4, '500.00'),
+(11, 9, 4, '13400.00'),
+(12, 9, 4, '13400.00'),
+(13, 9, 4, '13400.00');
 
 -- --------------------------------------------------------
 
@@ -236,7 +227,8 @@ INSERT INTO `producto` (`id_producto`, `nombre_producto`, `desc_producto`, `stoc
 (49, 'Auriculares Gamer con Microfon', 'Profesionales Gamer Microfono Sonido Envolvente', 6, '390.00', 'auNegro.jpg', 5),
 (50, 'Auriculares Iphone', 'Clasicos Auriculares Sonido Envolvente', 5, '190.00', 'Au-iphone.jpg', 5),
 (51, 'USB STEREN 8GB', 'Moderna Usb con protector inclido', 6, '80.00', 'usbplata.jpg', 5),
-(52, 'Preuba45', 'prueba56546', 2, '200.00', 'Fuente.png', 2);
+(52, 'Preuba45', 'prueba56546', 2, '200.00', 'Fuente.png', 2),
+(54, 'Algo aun mas prron', 'Que pasa prro', 8, '450.00', '3100.jpg', 1);
 
 --
 -- Índices para tablas volcadas
@@ -270,12 +262,6 @@ ALTER TABLE `detalle_orden`
 ALTER TABLE `direccion`
   ADD PRIMARY KEY (`id_direccion`),
   ADD KEY `id_cliente` (`id_cliente`);
-
---
--- Indices de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  ADD PRIMARY KEY (`id_empleado`);
 
 --
 -- Indices de la tabla `metodo_pago`
@@ -312,13 +298,13 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_orden`
 --
 ALTER TABLE `detalle_orden`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de la tabla `direccion`
@@ -327,28 +313,22 @@ ALTER TABLE `direccion`
   MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de la tabla `empleados`
---
-ALTER TABLE `empleados`
-  MODIFY `id_empleado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
 -- AUTO_INCREMENT de la tabla `metodo_pago`
 --
 ALTER TABLE `metodo_pago`
-  MODIFY `id_mtdpago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_mtdpago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Restricciones para tablas volcadas
