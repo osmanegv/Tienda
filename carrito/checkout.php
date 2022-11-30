@@ -32,8 +32,8 @@ $arreglo = $_SESSION['carrito'];
   $contador = 0;
   $res = $conex->query("select * from clientes where id_cliente=" . $Id) or die($conex->error);
   $Fila = mysqli_fetch_row($res);
-  $Nombre = $Fila["1"];
-  $Email = $Fila['2'];
+  $Nombre = $Fila["2"];
+  $Email = $Fila['3'];
 
   $resultado = $conex->query("select * from direccion WHERE id_cliente='" . $Id . "'") or die($conex->error);
   while ($fila = mysqli_fetch_array($resultado)) {
