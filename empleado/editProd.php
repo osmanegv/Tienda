@@ -7,7 +7,7 @@
 </style>
 
 
-<form action="editarP.php" method="POST">
+<form action="editarP.php" method="POST" enctype="multipart/form-data">
   <div class="p-3 p-lg-5 border">
 
     <div class="form-group">
@@ -26,6 +26,8 @@
         <?php } ?>
       </select>
     </div>
+
+
 
     <div class="form-group row">
       <div class="col-md-12">
@@ -62,8 +64,8 @@
     </div>
     <div class="form-group row">
       <div class="col-md-12">
-        <label for="c_postal_zip" class="text-black">Codigo de imagen<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ej: Equipo.png">
+        <label for="c_state_country" class="text-black">Seleccionar imagen<span class="text-danger">*</span></label>
+        <input type="file" name="fileToUpload" id="fileToUpload">
       </div>
     </div>
 

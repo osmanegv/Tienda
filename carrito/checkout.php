@@ -118,33 +118,23 @@ $arreglo = $_SESSION['carrito'];
 
 
           <div class="form-group row">
-            <div class="form-group row mb-5">
+            <div class="col-md-12">
               <?php
               if ($contador == 0) {
               ?>
-              <div class="col-md-6">
+              <div class="form-group">
                 <label for="c_email_address" class="text-black">Email <span class="text-danger">*</span></label>
                 <input type="text" class="form-control" id="c_email_address" name="email"
                   placeholder="<?php echo $Email ?>">
               </div>
-              <div class="col-md-6">
-                <label for="c_phone" class="text-black">Celular<span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="c_phone" name="c_phone"
-                  placeholder="Numero de telefono/cel">
-              </div>
               <?php
               } else {
               ?>
-              <div class="col-md-6">
+              <div class="form-group">
                 <label for="c_email_address" class="text-black">Email <span class="text-danger">*</span></label>
                 <div class="alert alert-light text-dark border border border-info" role="alert" name="email">
                   <?php echo $Email ?>
                 </div>
-              </div>
-              <div class="col-md-6">
-                <label for="c_phone" class="text-black">Celular<span class="text-danger">*</span></label>
-                <input type="text" class="form-control" id="c_phone" name="c_phone"
-                  placeholder="Numero de telefono/cel">
               </div>
               <?php
               }
