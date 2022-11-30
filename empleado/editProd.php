@@ -61,12 +61,14 @@
         <label for="precio" class="text-black">Precio<span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="precio" name="precio" placeholder="Ej: 500">
       </div>
-
-      <div class="col-md-6">
-        <label for="codigo" class="text-black">Codigo de imagen<span class="text-danger">*</span></label>
+    </div>
+    <div class="form-group row">
+      <div class="col-md-12">
+        <label for="c_postal_zip" class="text-black">Codigo de imagen<span class="text-danger">*</span></label>
         <input type="text" class="form-control" id="codigo" name="codigo" placeholder="Ej: Equipo.png">
       </div>
     </div>
+
     <div class="form-group">
       <input type="submit" class="form-control" id="boton-color" value="Actualizar">
     </div>
