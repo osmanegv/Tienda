@@ -27,10 +27,8 @@
       <label for="categoria" class="text-black">Categoría <span class="text-danger">*</span></label>
       <select id="categoria" name="categoria" class="form-control">
         <option value="1">Productos destacados</option>
-        <option value="2">Computo</option>
-        <option value="3">Impresoras</option>
-        <option value="4">Accesorios</option>
-        <option value="5">Oficina</option>
+        <option value="2">Electroportátiles</option>
+        <option value="3">Herramientas</option>
       </select>
     </div>
 

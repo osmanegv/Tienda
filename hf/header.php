@@ -2,7 +2,7 @@
   <section class="fixed-top">
     <nav class="navbar navbar-expand-lg navbar-light bg-light ">
       <div class="logo">
-        <a href="/Tienda/index.php"><img src="/Tienda/archivos/images/LOGOM2.png" class="img-fluid"
+        <a href="/Tienda/index.php"><img src="/Tienda/archivos/images/Logo.png" class="img-fluid"
             alt="Responsive image" /></a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -43,10 +43,9 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="/Tienda/index.php">Inicio</a>
-              <a class="dropdown-item" href="/Tienda/navBar/computo.php"> Computo </a>
-              <a class="dropdown-item" href="/Tienda/navBar/Impresoras.php">Impresoras </a>
-              <a class="dropdown-item " href="/Tienda/navBar/Accesorios.php">Accesorios</a>
-              <a class="dropdown-item" href="/Tienda/navBar/Oficina.php">Oficina </a>
+              <a class="dropdown-item" href="/Tienda/navBar/electroportatiles.php"> Electroportátiles </a>
+              <a class="dropdown-item" href="/Tienda/navBar/herramientas.php">Herramientas </a>
+              
 
 
             </div>
@@ -70,7 +69,7 @@
         ?>
         <button type="text" class="btn btn-dark" onclick="window.location='<?php echo
             $tp ?>'">
-          <i class="fas fa-user"></i>&nbsp Pefil
+          <i class="fas fa-user"></i>&nbsp Perfil
         </button>
         <form action="/Tienda/registro/sesionOut.php" method="POST">
           <button type="submit" class="btn btn-dark">
