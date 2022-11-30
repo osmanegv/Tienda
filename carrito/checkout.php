@@ -217,7 +217,7 @@ $arreglo = $_SESSION['carrito'];
 
               <div class="border p-3 mb-3">
                 <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsebank" role="button"
-                    aria-expanded="false" aria-controls="collapsebank">Direct Bank Transfer</a></h3>
+                    aria-expanded="false" aria-controls="collapsebank">Tarjeta de Crédito/Débito</a></h3>
 
                 <div class="collapse" id="collapsebank">
                   <div class="py-2">
@@ -229,7 +229,7 @@ $arreglo = $_SESSION['carrito'];
 
               <div class="border p-3 mb-3">
                 <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsecheque" role="button"
-                    aria-expanded="false" aria-controls="collapsecheque">Cheque Payment</a></h3>
+                    aria-expanded="false" aria-controls="collapsecheque">Depósito Bancario</a></h3>
 
                 <div class="collapse" id="collapsecheque">
                   <div class="py-2">
@@ -241,7 +241,7 @@ $arreglo = $_SESSION['carrito'];
 
               <div class="border p-3 mb-5">
                 <h3 class="h6 mb-0"><a class="d-block" data-toggle="collapse" href="#collapsepaypal" role="button"
-                    aria-expanded="false" aria-controls="collapsepaypal">Paypal</a></h3>
+                    aria-expanded="false" aria-controls="collapsepaypal">Pago Contra Entrega</a></h3>
 
                 <div class="collapse" id="collapsepaypal">
                   <div class="py-2">

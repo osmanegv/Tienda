@@ -4,7 +4,7 @@
             <div class="row mx-5">
               <div class="col-xs-12 col-md-4 col-lg-4 mt-5">
                 <h5>Más Informacion de la Tienda</h5>
-                <p class="mt-4">Somos una tienda online, no tenemos una tienda física.
+                <p class="mt-4">Somos una ferretería online, no tenemos una tienda física.
                   Enviamos a todo el país.</p>
               </div>
               <div class="col-xs-12 col-md-4 col-lg-4 mt-3">
@@ -32,7 +32,7 @@
                     <div class="iconoF"style="float:left"><i class="fa fa-whatsapp mx-1"></i></div>
                     <span>Whatsapp: (502)43539075</span><br><br>
                     <div class="iconoF"style="float:left"><i class="fa fa-envelope mx-1"></i></div>
-                    <span>Correo: factoretecnologia@gmail.com</span>
+                    <span>Correo: ferreteriatools@gmail.com</span>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@
               <div class="row">
                 <div class="col-xs-12 col-md-10 col-lg-12 mt-1 ">
                   
-                   © 2020 Derechos reservados -Webifica</p>
+                   © 2022 Derechos reservados -los divorciados</p>
                   
                 </div>
               </div>
