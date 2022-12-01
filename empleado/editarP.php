@@ -5,6 +5,14 @@ include('../hf/imagenes.php');
 session_start();
 require "../sesion/conexion.php";
 
+
+$resultado = $conex->query("select * from producto where id_producto=" . $_POST['buscar'] . "") or die($conex->error);
+$fila = mysqli_fetch_array($resultado);
+
+$imagen = '../archivos/img_productos/' . $fila['imagen_producto'];
+unlink($imagen);
+
+
 if (
     !empty($_POST["nombre"]) && !empty($_POST["descripcion"]) && !empty($_POST["stock"]) && !empty($_POST["precio"])
     && !empty($_POST["categoria"])

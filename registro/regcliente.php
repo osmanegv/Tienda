@@ -16,13 +16,14 @@ if (!empty($_POST["nombre_cliente"]) && !empty($_POST["email_cliente"]) && !empt
         while ($fila = mysqli_fetch_array($resultado)) {
             $id = $fila['id_cliente'];
         }
+
         echo "<script> 
     alert ('Successfully created new user');
-    alert ('$id');
     window.location = '/Tienda/index.php';
     </script>";
         session_start();
         $_SESSION['log'] = $id;
+        $_SESSION['tp'] = 2;
     } else {
         $message = 'Sorry thre must have been an issue creating your password';
         echo "<script> 
