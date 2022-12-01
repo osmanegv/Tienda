@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2022 a las 07:22:10
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.1.12
+-- Tiempo de generación: 01-12-2022 a las 04:21:05
+-- Versión del servidor: 10.4.20-MariaDB
+-- Versión de PHP: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `factor_tecnologia`
+-- Base de datos: `ferreteria`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `carrito` (
   `id_cliente` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `cantidad_producto` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -46,7 +46,7 @@ CREATE TABLE `clientes` (
   `nombre_cliente` varchar(30) NOT NULL,
   `email_cliente` varchar(30) NOT NULL,
   `pass_cliente` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `clientes`
@@ -57,7 +57,10 @@ INSERT INTO `clientes` (`id_cliente`, `tipo_usuario`, `nombre_cliente`, `email_c
 (8, 2, 'Pedro Ramirez', 'pedro@gmail.com', '12345'),
 (9, 2, 'Mario Juan', 'mario@gmail.com', '12345'),
 (11, 2, 'Maria de la Cruz', 'maria@gmail.com', '12345'),
-(12, 2, 'Hugo', 'hugo@gmail.com', '12345');
+(12, 2, 'Hugo', 'hugo@gmail.com', '12345'),
+(14, 2, 'Pedro', 'pedrito@gmail.com', '12345'),
+(15, 2, 'Manolo', 'manolo@gmail.com', '12345'),
+(16, 2, 'Juanito', 'juanito@gmail.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -71,7 +74,7 @@ CREATE TABLE `detalle_orden` (
   `id_producto` int(11) NOT NULL,
   `cantidad_producto` int(11) DEFAULT NULL,
   `precio_producto` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `detalle_orden`
@@ -83,7 +86,10 @@ INSERT INTO `detalle_orden` (`id_detalle`, `id_orden`, `id_producto`, `cantidad_
 (8, 10, 2, 1, '500.00'),
 (9, 11, 1, 1, '13400.00'),
 (10, 12, 1, 1, '13400.00'),
-(11, 13, 1, 1, '13400.00');
+(11, 13, 1, 1, '13400.00'),
+(12, 14, 1, 1, '2450.00'),
+(13, 15, 56, 1, '485.00'),
+(14, 16, 1, 1, '2450.00');
 
 -- --------------------------------------------------------
 
@@ -98,14 +104,16 @@ CREATE TABLE `direccion` (
   `municipio` varchar(50) DEFAULT NULL,
   `ciudad` varchar(50) DEFAULT NULL,
   `postal` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `direccion`
 --
 
 INSERT INTO `direccion` (`id_direccion`, `id_cliente`, `direccion`, `municipio`, `ciudad`, `postal`) VALUES
-(5, 11, '5to piso 8ta calle', 'San Pedro', 'San Marcos', '4563');
+(5, 11, '5to piso 8ta calle', 'San Pedro', 'San Marcos', '4563'),
+(6, 9, ' 5ta calle', 'Huehutenango', 'Huehuetenango', '13001'),
+(7, 14, ' 5ta calle', 'Huehuetenango', 'Huehuetenango', '13001');
 
 -- --------------------------------------------------------
 
@@ -119,7 +127,7 @@ CREATE TABLE `metodo_pago` (
   `nom_tarjeta` varchar(50) DEFAULT NULL,
   `num_tarjeta` varchar(50) DEFAULT NULL,
   `cvv_tarjeta` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `metodo_pago`
@@ -128,7 +136,8 @@ CREATE TABLE `metodo_pago` (
 INSERT INTO `metodo_pago` (`id_mtdpago`, `id_cliente`, `nom_tarjeta`, `num_tarjeta`, `cvv_tarjeta`) VALUES
 (1, 11, 'Maria', '1234567890', '123'),
 (3, 6, 'bam', '456546541', '555'),
-(4, 9, 'Mario', '34567890987654', '123');
+(4, 9, 'Mario', '34567890987654', '123'),
+(5, 14, 'Pedro', '1234567891234567', '123');
 
 -- --------------------------------------------------------
 
@@ -141,7 +150,7 @@ CREATE TABLE `orden` (
   `id_cliente` int(11) NOT NULL,
   `id_mtdpago` int(11) NOT NULL,
   `total_orden` decimal(10,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `orden`
@@ -153,7 +162,10 @@ INSERT INTO `orden` (`id_orden`, `id_cliente`, `id_mtdpago`, `total_orden`) VALU
 (10, 9, 4, '500.00'),
 (11, 9, 4, '13400.00'),
 (12, 9, 4, '13400.00'),
-(13, 9, 4, '13400.00');
+(13, 9, 4, '13400.00'),
+(14, 9, 4, '2450.00'),
+(15, 9, 4, '485.00'),
+(16, 14, 5, '2450.00');
 
 -- --------------------------------------------------------
 
@@ -169,7 +181,7 @@ CREATE TABLE `producto` (
   `precio_producto` decimal(10,2) DEFAULT NULL,
   `imagen_producto` varchar(50) DEFAULT NULL,
   `categoria_producto` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `producto`
@@ -267,37 +279,37 @@ ALTER TABLE `carrito`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_orden`
 --
 ALTER TABLE `detalle_orden`
-  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_detalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `direccion`
 --
 ALTER TABLE `direccion`
-  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_direccion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `metodo_pago`
 --
 ALTER TABLE `metodo_pago`
-  MODIFY `id_mtdpago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_mtdpago` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `orden`
 --
 ALTER TABLE `orden`
-  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_orden` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- Restricciones para tablas volcadas
